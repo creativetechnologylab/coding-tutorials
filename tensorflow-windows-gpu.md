@@ -35,7 +35,7 @@ CALL pip install "tensorflow<2.11"
 
 2. Save this file as tf-script.bat
 3. Open the Miniforge Prompt and use `cd` to navigate to the folder in which the tf-script.bat file has been saved. 
-    - Hint: The `dir` command can be used to list the contents of a folder. Entering `dir *.bat` will list the files that have the extension .bat.
+    - Hint: The `dir` command can be used to list the contents of a folder. Entering `dir *.bat` will list the files in your folder that have the extension .bat.
 
 ![](pictures/show-bat-file-with-dir.png)
 
@@ -70,7 +70,7 @@ Now the `tf` environment should be installed and activated. There will be some b
 
 ![](pictures/check-gpu.png)
 
-The output lets me know that Tensorflow is able to use my NVidia GeForce RTX 4070 Laptop GPU. 
+The output lets me know that Tensorflow is able to use my Nvidia GeForce RTX 4070 Laptop GPU. 
 
 ## Optional: Renaming the Environment
 
