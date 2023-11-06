@@ -12,8 +12,8 @@ Guides for common programming tasks.
 
 Advice on how to write clean and readable code.
 
-[Tidying Python files with black and isort](python-black.md)
-[Setting up a pre-commit file](pre-commit.md)
+[Tidying Python files with black and isort](python-black.md)  
+[Setting up a pre-commit file](pre-commit.md)  
 
 ## Conda / Mamba
 
