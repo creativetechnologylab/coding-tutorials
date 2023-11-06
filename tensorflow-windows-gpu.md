@@ -71,3 +71,11 @@ Now the `tf` environment should be installed and activated. There will be some b
 ![](check-gpu.png)
 
 The output lets me know that Tensorflow is able to use my NVidia GeForce RTX 4070 Laptop GPU. 
+
+## Optional: Renaming the Environment
+
+Now that the environment is installed you may want to rename it. Note: This only works with Conda.
+
+Enter the following command into the Miniforge prompt.
+
+`conda rename -n tf new_name`
