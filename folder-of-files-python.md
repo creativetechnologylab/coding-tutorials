@@ -1,91 +1,87 @@
 # Reading a Folder of Files with Python
 
-For this example we're going to use Python to load a folder of images. Let's say we want to load all our images into Python with a library like `cv2`. In this guide we will show you how to enable Python to read all the image files contained in a folder.
+In this example, we will demonstrate how to use Python to load a folder of images, by using the `cv2` library. The goal is to read all the image files contained in a specific folder, but you can adapt this to reading some other file type, or passing a collection of images to another command.
 
-## 1. Import the `os` module and any other necessary libraries.
+## 1. Import Required Libraries
 
-Before you can use `os.listdir`, you need to import the `os` module. This module provides a wide range of functions for interacting with the operating system, including working with directories and files.
+We need to use the `os.listdir()` (list directory) function to list all the files in a given folder. In order to do this we must first import the `os` module. The `os` module offers a wide range of functionalities for interacting with the operating system, including managing directories and files.
 
 ```python
 import os
 import cv2
 ```
 
-## 2. Specify the directory path
+## 2. Specify the Directory Path
 
-You need to provide the path of the directory you want to read. This path can be either an absolute path or a relative path. In the case of a relative path, it's relative to the current working directory. For an absolute path, this is the full path for the folder starting from the root directory of your file system. For Windows users, an absolute path will typically take the form `C:\Users\User\...` while for Mac/Linux users an absolute path will take the form `/home/user/...`.
+You need to provide the path to the directory you want to read. This path can be either an absolute path or a relative path. In the case of a relative path, it is relative to the current working directory. For an absolute path, it should represent the full path to the folder from the root directory of your file system. For Windows users, an absolute path typically looks like `C:\Users\User\...`, while for Mac/Linux users, it appears as `/home/user/...`.
 
 ```python
 directory_path = '/path/to/your/directory/of/files'
 ```
 
-## 3. Use `os.listdir` to get a list of files and directories
+## 3. Use `os.listdir()` to Obtain a List of Files and Directories
 
-Once you've defined the `directory_path`, you can use `os.listdir` to give a list the names of all the files in that directory. For now, let's just print their names so we can be assured that everything is working:
+Once you have defined the `directory_path`, you can use the `os.listdir()` function to retrieve a list of file and directory names within that specified directory. For now, we will print these names to verify that everything is functioning correctly.
 
 ```python
 for filename in os.listdir(directory_path):
     print(filename)
 ```
 
-Running this should show a list of the files in the directory that you provided earlier and saved to the `directory_path` variable. If you are not getting the right output, then change `directory_path` so that is leading to the right place.
+Executing this code will display a list of files in the directory you provided earlier, which is stored in the `directory_path` variable. If the output is not as expected, ensure that `directory_path` points to the correct location.
 
-## 4. Pass the file names to a command for reading the files
+## 4. Read the Files
 
-Once you're satisfied that `os.listdir` is doing the right thing, we can now send these filenames to a command that can take a filename and read the file that is located there. Let's try this out by using a folder of images. In that case we would do the following:
+Once you are confident that `os.listdir` is functioning correctly, you can proceed to read these filenames using a command capable of reading the files. In this example, we will work with a folder of images. Here's how to do it:
 
 ```python
-# Create an empty list for the image files
+# Create an empty list to store the image files
 images = []
 
-# Loop through the files in our folder of images
+# Iterate through the files in our image folder
 for filename in os.listdir(directory_path):
-    # Obtain the combined file path
+    # Obtain the complete file path
     combined_image_path = os.path.join(directory_path, filename)
     # Read the image file with cv2
     image = cv2.imread(combined_image_path)
-    # Add this image to our image list
+    # Add the image to our list of images
     images.append(image)
 
-# Print out our list at the end just to see that it's all worked
+# Display the list at the end to ensure everything has worked
 print(images)
 ```
 
-Here we are creating an empty list for our image data. We then loop through the filenames in our image folder and pass these filenames to the `cv2.imread()` command. You will notice that we are not sending the `file_path` from our loop to `imread` but rather the output from a call to the `os.path.join()` command. This is because `os.listdir()` simply gives us the filenames `image-1.png`, `image-2.png`, etc but doesn't actually say where those files _are_. This is why `os.path.join()` is needed to take the path of the folder and the filename of the file we wish to load and _combine_ them. So we are take our `image-1.png` and combine it with `/path/to/image/files` to get `path/to/image/files/image-1.png`. If we gave only the image filenames then we would get an error from `cv2.imread()` unless your working directory _is_ the folder of images.
+In this code, we create an empty list to store image data. We then loop through the filenames in our image folder and pass these filenames to the `cv2.imread()` function. Note that we use `os.path.join()` to combine the folder path with the filename to obtain the full file path. This is necessary because `os.listdir()` only provides filenames without specifying their location. Providing the full path allows `cv2.imread()` to locate the files. If you only provide the image filenames, you may encounter errors with `cv2.imread()` unless your working directory is the same as the image folder.
 
-This is like giving the code the full address to a file. If I say that a package needs to be delivered to 123 Somehwere Street, but I don't tell you the city and country Somewhere Street is in, then you don't know where to go. This is why we need to provide the folder path and filename.
+By loading the image using `cv2.imread()`, we can add it to our list using the `append()` function.
 
-With our file that's been loaded using `cv2.imread()` we can now add it our list by using the `append()` command.
+The provided code works as long as your image folder contains valid image files. However, if there are non-image files or corrupted files, we will need to add some extra code to handle this.
 
-The code above will work provided your image folder _only_ contains valid image files, but it might not. In that case, we need a way of handling cases where `cv2.imread()` is given a file it's unable to open as an image.
+## 5. Handling Invalid Files in the Folder
 
-## 5. Handing invalid files in your folder
-
-It's quite likely you have `.DS_Store` or other random files that have found their way to your folder of files that you wish to load. It's also possible that one or more of your files have gotten corrupted for whatever reason. In this case we need to instruct Python to carry on with the next file if it encouters a file it's unable to read something. To do this we use something called a `try-except` block.
+It's common to encounter files like `.DS_Store` or other non-image files in your folder. Additionally, some files may be corrupted. In such cases, Python should continue with the next file if it encounters a file it cannot read. To achieve this, you can use a `try-except` block:
 
 ```python
-# Create an empty list for the image files
+# Create an empty list to store the image files
 images = []
 
-# Loop through the files in our folder of images
+# Iterate through the files in our image folder
 for filename in os.listdir(directory_path):
-    # Obtain the combined file path
+    # Obtain the complete file path
     combined_image_path = os.path.join(directory_path, filename)
     try:
         # Read the image file with cv2
         image = cv2.imread(combined_image_path)
-        # Add this image to our image list
+        # Add the image to our list of images
         images.append(image)
     except cv2.error as e:
         print(e)
         print(filename)
         continue
 
-    images.append(image)
-
 print(images)
 ```
 
-`try-except` means that we can run our code and "catch" any errors or exceptions that get thrown. What this is doing is _attempting_ to read a file as an image. Should this fail we instead print some information about the error that was caused, the file that caused `cv2.imread()` to get the error, and then instruct Python to carry on with the next file by using the `continue` statement. `continue` basically says start this loop again with the next value and don't bother with the rest of the commands that are in the loop. There is no need to add our image file to the list of images if a file failed to load.
+The `try-except` block allows you to run the code and capture any errors that occur within the `try` block. If reading a file as an image fails, the code prints information about the error, the file that caused the error, and instructs Python to continue with the next file using the `continue` statement. There is no need to add the image file to the list if it fails to load.
 
-Finally you can use the `len()` command to see the length of a list. Use it to find the length of your list of loaded files with `len(images)` (or the name that you have given to your list), and compare that to what your file manager tells you is the number of files in that folder. Do you get the numbers that you expect?
+Finally, you can use the `len()` function to check the length of the list. Use `len(images)` (or the name of your list) to determine how many files were successfully loaded and compare it to the number of files your file manager reports in the folder. This comparison will help you verify that your code is functioning as expected.
