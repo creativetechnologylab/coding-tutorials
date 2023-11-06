@@ -42,7 +42,7 @@ CALL pip install "tensorflow<2.11"
 4. Run the file by entering its name in the prompt and hitting enter.
 5. You will see a list of packages that will be installed and asked if you want to confirm the changes. Type 'Y' and then hit Enter.
 
-![](pictures/first-conform-changes.png)
+![](pictures/first-confirm-changes.png)
 
 6. After this you will be asked to confirm the installation of `cudatoolkit` and `cudnn`. These are both required for Tensorflow to use the GPU. Like before, type `Y` and hit Enter.
 
