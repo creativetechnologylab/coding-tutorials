@@ -68,7 +68,7 @@ Now the `tf` environment should be installed and activated. There will be some b
 
 4. Test the GPU setup by running the following code: `tf.test.gpu_device_name()`
 
-![](check-gpu.png)
+![](pictures/check-gpu.png)
 
 The output lets me know that Tensorflow is able to use my NVidia GeForce RTX 4070 Laptop GPU. 
 
