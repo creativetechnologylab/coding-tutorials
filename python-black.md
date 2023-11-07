@@ -55,15 +55,9 @@ black --line-length 100 your_file.py
 
 You can run `black --help` to see a list of all available options.
 
-### Integrating with IDEs
+### Integrating with VSCode
 
-Most modern code editors and integrated development environments (IDEs) have plugins or extensions that integrate Black directly into your workflow. Here are a few examples:
-
-- **Visual Studio Code (VSCode):** You can use the "Black - Python code formatter" extension to automatically format your code as you write.
-
-- **PyCharm:** PyCharm has built-in support for Black. You can enable it in the settings under "Editor" > "Code Style" > "Python" > "Black".
-
-- **Sublime Text:** The "Python Black" package allows you to format your code using Black directly within Sublime Text.
+You can use the [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) extension to automatically format your code as you write.
 
 ### Conclusion
 
@@ -120,15 +114,9 @@ In this example:
 
 You can customize these options and more in your `isort.cfg` file. Run `isort --help` to see a list of available configuration options and their descriptions.
 
-### IDE Integration
+### Integrating with VSCode
 
-Many code editors and IDEs have extensions or plugins that integrate isort seamlessly into your development workflow. Here are a few examples:
-
-- **Visual Studio Code (VSCode):** The "isort" extension allows you to automatically format your imports in VSCode.
-
-- **PyCharm:** PyCharm offers built-in support for isort. You can configure it under "Editor" > "Code Style" > "Python" > "isort".
-
-- **Sublime Text:** The "isort" package lets you organize your imports using isort directly within Sublime Text.
+The [isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort) extension allows you to automatically format your imports in VSCode.
 
 ### Conclusion
 
