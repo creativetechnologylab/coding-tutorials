@@ -1,6 +1,6 @@
 # Reading a Folder of Files with Python
 
-In this example, we will demonstrate how to use Python to load a folder of images, by using the `cv2` library. The goal is to read all the image files contained in a specific folder, but you can adapt this to reading some other file type, or passing a collection of images to another command.
+In this example, we will demonstrate how to use Python to load a folder of images, by using the `cv2` library. The goal is to read all the image files contained in a specific folder, but you can adapt this code to reading some other file type, or passing a collection of images to another command.
 
 ## 1. Import Required Libraries
 
@@ -84,4 +84,4 @@ print(images)
 
 The `try-except` block allows you to run the code and capture any errors that occur within the `try` block. If reading a file as an image fails, the code prints information about the error, the file that caused the error, and instructs Python to continue with the next file using the `continue` statement. There is no need to add the image file to the list if it fails to load.
 
-Finally, you can use the `len()` function to check the length of the list. Use `len(images)` (or the name of your list) to determine how many files were successfully loaded and compare it to the number of files your file manager reports in the folder. This comparison will help you verify that your code is functioning as expected.
+Finally, you can use the `len()` function to check the length of the list. Use `len(images)` (or the name of your list) to determine how many files were successfully loaded and compare it to the number of files your file manager reports in the folder. Do you get the numbers that you expect?
