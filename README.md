@@ -2,6 +2,8 @@
 
 A collection of coding tutorials.
 
+I'm open to suggestions on what can be added to this.
+
 ## Python Tips
 
 Guides for common programming tasks.
