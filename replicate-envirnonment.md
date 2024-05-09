@@ -1,6 +1,6 @@
 # Replicating an Environment
 
-If the machine you're exhibiting with differs from the one you used for development, you'll need to replicate your Python environment on the presentation machine. To do this, we create either a requirements.txt or an environment.yml file that lists all the dependencies your project relies on and the specific versions of those dependencies that are required. This file can then be used to install the exact same dependencies on your presentation machine, ensuring that your code runs as expected in the exhibition environment.
+If the machine you're exhibiting with differs from the one you used for development, you'll need to replicate your Python environment on the presentation machine. To do this, we create either a requirements.txt or an environment.yml file that lists all the dependencies your project relies on and the specific versions of those dependencies that is required. This file can then be used to install the exact same dependencies on your presentation machine, ensuring that your code runs as expected in the exhibition environment.
 
 ## Conda / Mamba
 
@@ -20,4 +20,20 @@ Now, as you would with any other environment, you can `activate` it and begin us
 
 ## `requirements.txt`
 
+If you didn't use Conda or Mamba, then we can create a similar file simply by using pip. This can be done using the following command within a terminal:
+
+`pip freeze > requirements.txt`
+
+This will create a `requirements.txt` file that also contains a list of the Python libraries that you have installed and their required versions. This will only record libraries that were installed via pip, so if anything was installed with Conda/Mamba, you should instead use the method above to ensure that no libraries have been left out.
+
+This is also a file worth tracking with Git if you are using it.
+
+Now in the presentation machine, you can duplicate your command using the command below:
+
+`pip install -r requirements. txt`
+
+Pip will then install all the packages that are in the file.
+
 ## Operating System Switch
+
+It is important to note that certain libraries behave differently and/or need to be set up differently on various operating systems. If you are switching from one OS to another for your presentation, then you will need to check this ahead of time and perhaps make some changes to what libraries are being used or their versions. You could keep this organised by naming your files `requirements-mac.txt`, `requirements-win.txt`, etc to avoid confusion.
