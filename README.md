@@ -1,10 +1,10 @@
 # Coding Tutorials
 
-A collection of coding tutorials.
+A collection of coding tutorials and helpful info.
 
 I'm open to suggestions on what can be added to this.
 
-## Python Tips
+## Python Guides
 
 Guides for common programming tasks.
 
@@ -23,5 +23,6 @@ Advice on how to write clean and readable code.
 
 Guides related to using Conda or Mamba to set up virtual environments.
 
+[Replicating an Environment](replicate-envirnonment.md)
 [Making VSCode Recognise Your Conda / Mamba Installation](vscode-conda.md)  
 [Setting up Tensorflow on Windows with GPU support using Mamba or Conda](tensorflow-windows-gpu.md)  
