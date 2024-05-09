@@ -23,6 +23,6 @@ Advice on how to write clean and readable code.
 
 Guides related to using Conda or Mamba to set up virtual environments.
 
-[Replicating an Environment](replicate-envirnonment.md)
+[Replicating an Environment](replicate-envirnonment.md)  
 [Making VSCode Recognise Your Conda / Mamba Installation](vscode-conda.md)  
 [Setting up Tensorflow on Windows with GPU support using Mamba or Conda](tensorflow-windows-gpu.md)  
